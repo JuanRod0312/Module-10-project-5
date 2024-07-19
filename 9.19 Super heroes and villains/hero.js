@@ -12,7 +12,7 @@ class SuperHuman
 
 class SuperHero extends SuperHuman 
 {
-    constructor(name, powerLevel, alias) 
+    constructor(name, alias, powerLevel) 
     {
         super(name, powerLevel);
         this.alias = alias;
@@ -32,9 +32,13 @@ class SuperHero extends SuperHuman
 
 class SuperVillain extends SuperHuman 
 {
-    constructor(name, powerLevel, alias) 
+    constructor(name, alias, powerLevel) 
     {
         super(name, powerLevel);
         this.alias = alias;
+    }
+    getEvilChuckle()
+    {
+        return "Ha ha ha!"
     }
 }
