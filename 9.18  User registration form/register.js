@@ -14,6 +14,11 @@ function checkForm() {
     const digitRegex = /\d/;
 
     const ul = document.createElement('ul');
+    
+    document.getElementById('fullName').classList.remove('error');
+    document.getElementById('email').classList.remove('error');
+    document.getElementById('password').classList.remove('error');
+    document.getElementById('passwordConfirm').classList.remove('error');
 
     if (fullName < 1) 
       {
