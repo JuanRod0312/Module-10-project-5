@@ -1,6 +1,7 @@
 const formErrorsDiv = document.getElementById('formErrors');
    formErrorsDiv.classList.add('hide');
-function checkForm() {
+function checkForm() 
+{
    const fullName = document.getElementById('fullName').value;
    const email = document.getElementById('email').value;
    const password = document.getElementById('password').value;
@@ -12,6 +13,7 @@ function checkForm() {
     const lowercaseRegex = /[a-z]/;
     const uppercaseRegex = /[A-Z]/;
     const digitRegex = /\d/;
+    let hasErrors = false;
 
     const ul = document.createElement('ul');
     
@@ -26,6 +28,7 @@ function checkForm() {
       document.getElementById('fullName').classList.add('error');
       let errormes = document.getElementById('formErrors')
       errormes.innerHTML += '<li>Missing full name.</li>';
+      hasErrors = true;
       }
 
     if (!emailRegex.test(email)|| email < 1) 
@@ -34,6 +37,7 @@ function checkForm() {
          document.getElementById('email').classList.add('error');
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Invalid or missing email address.</li>';
+         hasErrors = true;
       }
    
     if (password.length < 10 || password.length > 20) 
@@ -42,6 +46,7 @@ function checkForm() {
          document.getElementById('password').classList.add('error');
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Password must be between 10 and 20 characters.</li>';
+         hasErrors = true;
       }
 
     if (!lowercaseRegex.test(password)) 
@@ -50,6 +55,7 @@ function checkForm() {
          document.getElementById('password').classList.add('error');
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Password must contain at least one lowercase character.</li>';
+         hasErrors = true;
       }
 
     if (!uppercaseRegex.test(password)) 
@@ -58,6 +64,7 @@ function checkForm() {
          document.getElementById('password').classList.add('error');
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Password must contain at least one uppercase character.</li>';
+         hasErrors = true;
       }
     if (!digitRegex.test(password)) 
       {
@@ -65,6 +72,7 @@ function checkForm() {
          document.getElementById('password').classList.add('error');
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Password must contain at least one digit.</li>';
+         hasErrors = true;
       }
     if (password !== passwordConfirm) 
       {
@@ -72,6 +80,11 @@ function checkForm() {
          document.getElementById('passwordConfirm').classList.add('error');
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += "<li>Password and confirmation password don't match.</li>";
+         hasErrors = true;
+      }
+      if (hasErrors === false) 
+      {
+         document.getElementById('formErrors').classList.add('hide');
       }
 }
 
