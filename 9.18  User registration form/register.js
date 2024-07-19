@@ -44,7 +44,7 @@ function checkForm() {
          document.getElementById('formErrors').classList.remove('hide');
          document.getElementById('password').classList.add('error');
          let errormes = document.getElementById('formErrors')
-         errormes.innerHTML += '<li>Password must contain at least one lowercase letter.</li>';
+         errormes.innerHTML += '<li>Password must contain at least one lowercase character.</li>';
       }
 
     if (!uppercaseRegex.test(password)) 
@@ -52,7 +52,7 @@ function checkForm() {
          document.getElementById('formErrors').classList.remove('hide');
          document.getElementById('password').classList.add('error');
          let errormes = document.getElementById('formErrors')
-         errormes.innerHTML += '<li>Password must contain at least one uppercase letter.</li>';
+         errormes.innerHTML += '<li>Password must contain at least one uppercase character.</li>';
       }
     if (!digitRegex.test(password)) 
       {
@@ -66,7 +66,7 @@ function checkForm() {
          document.getElementById('formErrors').classList.remove('hide');
          document.getElementById('passwordConfirm').classList.add('error');
          let errormes = document.getElementById('formErrors')
-         errormes.innerHTML += '<li>Passwords do not match.</li>';
+         errormes.innerHTML += "<li>Password and confirmation password don't match.</li>";
       }
 }
 
