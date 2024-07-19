@@ -20,7 +20,7 @@ function checkForm() {
       document.getElementById('formErrors').classList.remove('hide');
       document.getElementById('fullName').classList.add('error');
       let errormes = document.getElementById('formErrors')
-      errormes.innerHTML += '<li>Full name is required</li>';
+      errormes.innerHTML += '<li>Missing full name.</li>';
       }
 
     if (!emailRegex.test(email)|| email < 1) 
