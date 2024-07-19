@@ -31,7 +31,7 @@ function checkForm() {
          errormes.innerHTML += '<li>Invalid or missing email address.</li>';
       }
    
-    if (password < 10 | password > 20) 
+    if (password.length < 10 || password.length > 20) 
       {
          document.getElementById('formErrors').classList.remove('hide');
          document.getElementById('password').classList.add('error');
