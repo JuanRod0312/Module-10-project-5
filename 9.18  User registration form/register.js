@@ -21,6 +21,13 @@ function checkForm() {
       let errormes = document.getElementById('formErrors')
       errormes.innerHTML += '<li>Full name is required</li>';
     }
+
+      if (!emailRegex.test(email)|| email < 1) {
+         document.getElementById('formErrors').classList.remove('hide');
+         document.getElementById('email').classList.add('error');
+         let errormes = document.getElementById('formErrors')
+         errormes.innerHTML += '<li>Invalid or missing email address.</li>';
+      }
 }
 
 document.getElementById("submit").addEventListener("click", function(event) {
