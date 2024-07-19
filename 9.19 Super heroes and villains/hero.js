@@ -8,3 +8,19 @@ class SuperHuman {
         this.powerLevel = powerLevel;
     }
 }
+
+class SuperHero extends SuperHuman {
+    constructor(name, powerLevel, alias) 
+    {
+        super(name, powerLevel);
+        this.alias = alias;
+    }
+}
+
+class SuperVillain extends SuperHuman {
+    constructor(name, powerLevel, alias) 
+    {
+        super(name, powerLevel);
+        this.alias = alias;
+    }
+}
