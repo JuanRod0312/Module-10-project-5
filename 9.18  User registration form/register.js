@@ -38,6 +38,14 @@ function checkForm() {
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Password must be between 10 and 20 characters.</li>';
       }
+
+    if (!lowercaseRegex.test(password)) 
+      {
+         document.getElementById('formErrors').classList.remove('hide');
+         document.getElementById('password').classList.add('error');
+         let errormes = document.getElementById('formErrors')
+         errormes.innerHTML += '<li>Password must contain at least one lowercase letter.</li>';
+      }
 }
 
 document.getElementById("submit").addEventListener("click", function(event) {
