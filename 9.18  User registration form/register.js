@@ -61,6 +61,13 @@ function checkForm() {
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Password must contain at least one digit.</li>';
       }
+    if (password !== passwordConfirm) 
+      {
+         document.getElementById('formErrors').classList.remove('hide');
+         document.getElementById('passwordConfirm').classList.add('error');
+         let errormes = document.getElementById('formErrors')
+         errormes.innerHTML += '<li>Passwords do not match.</li>';
+      }
 }
 
 document.getElementById("submit").addEventListener("click", function(event) {
