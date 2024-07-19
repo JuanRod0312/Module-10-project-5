@@ -15,18 +15,28 @@ function checkForm() {
 
     const ul = document.createElement('ul');
 
-    if (fullName < 1) {
+    if (fullName < 1) 
+      {
       document.getElementById('formErrors').classList.remove('hide');
       document.getElementById('fullName').classList.add('error');
       let errormes = document.getElementById('formErrors')
       errormes.innerHTML += '<li>Full name is required</li>';
-    }
+      }
 
-      if (!emailRegex.test(email)|| email < 1) {
+    if (!emailRegex.test(email)|| email < 1) 
+      {
          document.getElementById('formErrors').classList.remove('hide');
          document.getElementById('email').classList.add('error');
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Invalid or missing email address.</li>';
+      }
+   
+    if (password < 10 | password > 20) 
+      {
+         document.getElementById('formErrors').classList.remove('hide');
+         document.getElementById('password').classList.add('error');
+         let errormes = document.getElementById('formErrors')
+         errormes.innerHTML += '<li>Password must be between 10 and 20 characters.</li>';
       }
 }
 
