@@ -54,6 +54,13 @@ function checkForm() {
          let errormes = document.getElementById('formErrors')
          errormes.innerHTML += '<li>Password must contain at least one uppercase letter.</li>';
       }
+    if (!digitRegex.test(password)) 
+      {
+         document.getElementById('formErrors').classList.remove('hide');
+         document.getElementById('password').classList.add('error');
+         let errormes = document.getElementById('formErrors')
+         errormes.innerHTML += '<li>Password must contain at least one digit.</li>';
+      }
 }
 
 document.getElementById("submit").addEventListener("click", function(event) {
