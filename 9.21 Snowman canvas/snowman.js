@@ -40,9 +40,22 @@ function drawSnowText(canvas)
    context.fillText("SNOW", canvas.width/ 2, 10);
 }
 
-function drawSnowman(canvas) { 
-   // TODO: Complete the function
+function drawSnowman(canvas) 
+{
+   let context = canvas.getContext("2d");
+   context.fillStyle = "white";
 
+   context.beginPath();
+   context.arc(150, 200, 50, 0, Math.PI * 2);
+   context.fill();
+
+   context.beginPath();
+   context.arc(150, 120, 40, 0, Math.PI * 2);
+   context.fill();
+
+   context.beginPath();
+   context.arc(150, 60, 25, 0, Math.PI * 2);
+   context.fill();
 }
 
 function drawSingleFlake(canvas, x, y) {
