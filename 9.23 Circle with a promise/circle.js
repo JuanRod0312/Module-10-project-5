@@ -3,9 +3,16 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 function showCircleClick() {
-   // TODO: Add modifications here
-   
-   showCircle(160, 180, 120);
+   let promise = showCircle(160, 180, 120);
+   promise.then(circleShown, circleFailed);
+}
+
+function circleShown(div) {
+   div.innerHTML = "Ta da!";
+}
+
+function circleFailed(error) {
+   alert(error);
 }
 
 // Do not modify the code below
