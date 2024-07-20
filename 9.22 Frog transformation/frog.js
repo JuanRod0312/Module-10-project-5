@@ -26,10 +26,11 @@ function drawFrog(canvas, x, y, direction = directions.UP) {
          context.rotate(Math.PI);
          context.translate(-232.5, -92);
          break;
-      case directions.LEFT:
-         // TODO: Translate, rotate, and translate
-                  
-         break;
+         case directions.LEFT:
+            context.translate(x + frogImg.width / 2, y + frogImg.height / 2)
+            context.rotate(-Math.PI/2);
+            context.translate(-102.5, -222);    
+            break;
       case directions.RIGHT:
          // TODO: Translate, rotate, and translate
          
