@@ -19,10 +19,12 @@ function drawFrog(canvas, x, y, direction = directions.UP) {
    const context = canvas.getContext("2d");
    const frogImg = document.querySelector("img");
 
-   switch (direction) {
+   switch (direction)
+    {
       case directions.DOWN:
-         // TODO: Translate, rotate, and translate
-         
+         context.translate(x+frogImg.width/2, y+frogImg.height/2)
+         context.rotate(Math.PI);
+         context.translate(-232.5, -92);
          break;
       case directions.LEFT:
          // TODO: Translate, rotate, and translate
