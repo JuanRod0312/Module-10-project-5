@@ -64,16 +64,22 @@ function clearBtnClick() {
 }
 
 function loadList() {
-   // TODO: Complete the function
+   let groceryList = localStorage.getItem("list");
 
+   if (groceryList) {
+       let parsedList = groceryList.split(",");
+       return parsedList;
+   } else {
+       return [];
+   }
 }
 
-function saveList(groceryList) {
-   // TODO: Complete the function
-
+function saveList(groceryList) 
+{
+    const Glist = groceryList.join(',').replace(/"/g, '');
+    localStorage.setItem('list', Glist);
 }
 
 function clearList() {
-   // TODO: Complete the function
-
+   localStorage.removeItem("list");
 }
