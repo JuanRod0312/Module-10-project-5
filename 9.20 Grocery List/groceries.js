@@ -81,6 +81,5 @@ function saveList(groceryList)
 }
 
 function clearList() {
-   // TODO: Complete the function
-
+   localStorage.removeItem("list");
 }
