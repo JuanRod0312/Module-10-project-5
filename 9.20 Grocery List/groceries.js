@@ -64,8 +64,14 @@ function clearBtnClick() {
 }
 
 function loadList() {
-   // TODO: Complete the function
+   let groceryList = localStorage.getItem("list");
 
+   if (groceryList) {
+       let parsedList = groceryList.split(",");
+       return parsedList;
+   } else {
+       return [];
+   }
 }
 
 function saveList(groceryList) {
