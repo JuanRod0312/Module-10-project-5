@@ -74,9 +74,10 @@ function loadList() {
    }
 }
 
-function saveList(groceryList) {
-   // TODO: Complete the function
-
+function saveList(groceryList) 
+{
+    const Glist = groceryList.join(',').replace(/"/g, '');
+    localStorage.setItem('list', Glist);
 }
 
 function clearList() {
