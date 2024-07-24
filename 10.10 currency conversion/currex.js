@@ -189,11 +189,34 @@ $(document).ready(function () {
   
   var $toCurrency = $('#toCurrency');
   $toCurrency.append('<option value="" disabled selected>Select currency</option>');
-  for (var abbreviation in exchangeRates.rates) {
-     if (allCurrencies.hasOwnProperty(abbreviation)) {
+  for (var abbreviation in exchangeRates.rates) 
+    {
+     if (allCurrencies.hasOwnProperty(abbreviation)) 
+      {
         var fullCurrencyName = allCurrencies[abbreviation];
         var option = $('<option></option>').val(abbreviation).text(`${fullCurrencyName} (${abbreviation})`);
         $toCurrency.append(option);
      }
   }
-  });
+  $toCurrency.change(function () {
+    var selectedCurrency = $(this).val();
+    var usdAmount = parseFloat($('#usdInput').val());
+
+    if (selectedCurrency && !isNaN(usdAmount))
+   {
+        var rate = exchangeRates.rates[selectedCurrency];
+        var convertedAmount = (usdAmount * rate).toFixed(2);
+
+        $('#resultCurrency').val(convertedAmount);
+
+        var currencyName = allCurrencies[selectedCurrency];
+        $('#resultLabel').text(`${currencyName} (${selectedCurrency}):`);
+    }
+     else 
+    {
+        
+        $('#resultCurrency').val('---.--');
+        $('#resultLabel').text('To Currency ():');
+    }
+});
+});
