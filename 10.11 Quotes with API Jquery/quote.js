@@ -1,6 +1,6 @@
 $(function () {
    $("#fetchQuotesBtn").click(function () {
-      // Get selected topic and count from drop-down lists
+      
       const selectedTopic = $("#topicSelection option:selected").val();
       const selectedCount = $("#countSelection option:selected").val();
       fetchQuotes(selectedTopic, selectedCount);
