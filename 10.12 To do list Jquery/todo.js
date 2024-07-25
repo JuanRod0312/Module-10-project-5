@@ -50,7 +50,8 @@ function addItem(item) {
    });
 
    $newItem.append($upButton).append($downButton).append($doneButton);
-   $("#itemList").append($newItem);
+
+   $("ol").append($newItem);
 }
 
 function moveItem(fromIndex, toIndex) {
