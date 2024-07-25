@@ -72,6 +72,5 @@ function moveItem(fromIndex, toIndex) {
 }
 
 function removeItem(index) {
-   // TODO: Complete the function
-   
+   $("ol li").eq(index).remove();
 }
