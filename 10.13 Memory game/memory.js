@@ -100,8 +100,11 @@ function hideCard(index) {
 }
 
 function showMatch(cardIndex1, cardIndex2) {
-   // TODO: Animate $cardDivs[cardIndex1] and $cardDivs[cardIndex2] card symbols' font size
-   
+setTimeout(function() {
+   $cardDivs[cardIndex1].add($cardDivs[cardIndex2])  
+             .animate({ fontSize: '100px' }, 200) 
+             .animate({ fontSize: '75px' }, 200);  
+   }, 500);  
 }
 
 function newGame() {
