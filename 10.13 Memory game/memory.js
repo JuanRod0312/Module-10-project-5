@@ -82,18 +82,21 @@ function clickCard(index) {
 }
 
 function showCard(index) {
-   // TODO: Animate showing the card
-   
-   $cardDivs[index].html(cards[index].entity)
-      .css("color", cards[index].color)
-      .addClass("card-visible"); 
+   $cardDivs[index].slideUp(200, function() {
+      $(this).html(cards[index].entity)
+             .css("color", cards[index].color)
+             .addClass("card-visible");
+      $(this).slideDown(200);
+   });
 }
 
 function hideCard(index) {
-   // TODO: Animate hiding the card
-   
-   $cardDivs[index].html("")
-      .removeClass("card-visible");
+   let $card = $cardDivs[index];
+   $card.slideUp(200, function() {
+      $(this).html("")
+             .removeClass("card-visible")
+             .slideDown(200);  
+   });
 }
 
 function showMatch(cardIndex1, cardIndex2) {
