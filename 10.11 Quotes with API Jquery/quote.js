@@ -8,13 +8,20 @@ $(function () {
 });
 
 function fetchQuotes(topic, count) {
-   // TODO: Modify to use $.get() or $.ajax()
+   
+   let url = "https://wp.zybooks.com/quotes.php?topic=" + encodeURIComponent(topic) + "&count=" + count;
 
-   let html = "<ol>";
-   for (let c = 0; c < count; c++) {
-      html += `<li>Quote ${c + 1} - Anonymous</li>`;
-   }
-   html += "</ol>";
+   $.get(url, function(response) {
+       let html = "<ol>";
+       
+       
+       response.forEach((quote, index) => {
+           html += `<li>${quote.text} - ${quote.author || "Anonymous"}</li>`;
+       });
 
-   $("#quotes").html(html);
+       html += "</ol>";
+
+       $("#quotes").html(html);
+   })
 }
+
