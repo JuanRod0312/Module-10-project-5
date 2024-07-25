@@ -82,35 +82,39 @@ function clickCard(index) {
 }
 
 function showCard(index) {
-   $cardDivs[index].slideUp(200, function() {
+   $cardDivs[index].slideUp(200, function () {
+
       $(this).html(cards[index].entity)
-             .css("color", cards[index].color)
-             .addClass("card-visible");
+
+         .css("color", cards[index].color)
+         .addClass("card-visible");
+
       $(this).slideDown(200);
+
    });
 }
 
 function hideCard(index) {
    let $card = $cardDivs[index];
-   $card.slideUp(200, function() {
+   $card.slideUp(200, function () {
       $(this).html("")
-             .removeClass("card-visible")
-             .slideDown(200);  
+         .removeClass("card-visible")
+         .slideDown(200);
    });
 }
 
 function showMatch(cardIndex1, cardIndex2) {
-setTimeout(function() {
-   $cardDivs[cardIndex1].add($cardDivs[cardIndex2])  
-             .animate({ fontSize: '100px' }, 200) 
-             .animate({ fontSize: '75px' }, 200);  
-   }, 500);  
+   setTimeout(function () {
+      $cardDivs[cardIndex1].add($cardDivs[cardIndex2])
+         .animate({ fontSize: '100px' }, 200)
+         .animate({ fontSize: '75px' }, 200);
+   }, 500);
 }
 
+
 function newGame() {
-   // TODO: Animate fading in and out the cards
-   
-   
+let $cardgame = $("#cardGrid");
+$cardgame.fadeOut("normal", function () {
    // Randomize the cards array by swapping card values 20 times
    for (let i = 0; i < 20; i++) {
       let cardIndex1 = getRandomNumber(0, cards.length - 1);
@@ -124,10 +128,11 @@ function newGame() {
    for (let i = 0; i < $cardDivs.length; i++) {
       $cardDivs[i].html("").removeClass("card-visible");
    }
-   
+   $cardgame.fadeIn("normal");
    // Nothing selected yet
    guessFirst = -1;
    guessSecond = -1;
+});
 }
 
 // Return a random number between min and max (inclusive).
