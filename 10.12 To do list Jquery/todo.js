@@ -55,8 +55,20 @@ function addItem(item) {
 }
 
 function moveItem(fromIndex, toIndex) {
-   // TODO: Complete the function
-   
+   let $items = $("ol li");
+   if (fromIndex < 0 || toIndex < 0 || fromIndex >= $items.length || toIndex >= $items.length) 
+      {
+      return;
+      }
+   let $itemToMove = $items.eq(fromIndex).detach();
+   if (toIndex < fromIndex) 
+      {
+      $itemToMove.insertBefore($items.eq(toIndex));
+      } 
+   else 
+      {
+      $itemToMove.insertAfter($items.eq(toIndex));
+      }
 }
 
 function removeItem(index) {
