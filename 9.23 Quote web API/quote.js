@@ -22,29 +22,29 @@ function showAnonymousQuotes(count) {
    document.querySelector("#quotes").innerHTML = html
 }
 
-function fetchQuotes(topic, count) {
-   
+function fetchQuotes(topic, count) 
+{   
    let url = "https://wp.zybooks.com/quotes.php?topic=" + encodeURIComponent(topic) + "&count=" + count;
-
-   
-   $.get(url, function(data) {
-       if (data.error) {
-           
-           $("#quotes").html(data.error);
-       } else {
-           
-           const ol = $("<ol></ol>");
-           data.forEach(quote => {
-               const li = $("<li></li>").text(`${quote.quote} - ${quote.source}`);
-               ol.append(li);
-           });
-           
-           $("#quotes").empty().append(ol);
-       }
-   }).fail(function() {
-       
-       $("#quotes").html("An error occurred. Please try again.");
-       console.error("Error fetching quotes");
-   });
+   fetch(url)
+      .then(response => response.json())
+      .then(data => {
+         if (data.error) 
+         {
+            document.querySelector("#quotes").innerHTML = data.error;
+         } else 
+         {
+            const ol = document.createElement("ol");
+            quotes.innerHTML = '';
+            data.forEach(quote => {
+               const li = document.createElement("li");
+               li.textContent = `${quote.quote} - ${quote.source}`;
+               ol.appendChild(li);
+            });
+            quotes.appendChild(ol);
+        }
+    })
+    .catch(error => {
+        document.querySelector("#quotes").innerHTML = "An error occurred. Please try again.";
+        console.error("Error fetching quotes:", error);
+    });
 }
-
